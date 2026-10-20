@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "crons": [
+    { "path": "/api/internal/allocation/tick", "schedule": "*/5 * * * *" },
+    { "path": "/api/internal/nightly", "schedule": "30 20 * * *" },
+    { "path": "/api/internal/offers/expire", "schedule": "0 * * * *" }
+  ],
+  "functions": {
+    "src/app/api/internal/**/*.ts": { "maxDuration": 300 }
+  }
+}
